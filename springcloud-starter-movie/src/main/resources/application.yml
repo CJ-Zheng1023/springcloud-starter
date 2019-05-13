@@ -1,0 +1,16 @@
+server:
+  port: 8001
+spring:
+  application:
+      name: movie-service
+eureka:
+  client:
+    healthcheck:
+        enabled: true
+    service-url:
+      defaultZone: http://localhost:7777/eureka/
+  instance:
+    prefer-ip-address: true
+logging:
+  level:
+    cn.afterwin.service.UserService: DEBUG
