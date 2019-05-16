@@ -4,10 +4,11 @@ import cn.afterwin.config.FeignConfiguration;
 import cn.afterwin.domain.User;
 import feign.Param;
 import feign.RequestLine;
+import feign.hystrix.FallbackFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.cloud.netflix.feign.FeignClient;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.stereotype.Component;
 
 /**
  * @description:
@@ -22,3 +23,32 @@ public interface UserService {
     @RequestLine("GET /user/{id}")
     User getById(@Param("id") long id);
 }
+/*@Component
+class UserServiceFallback implements UserService {
+    @Override
+    public User getById(long id) {
+        User user = new User();
+        user.setId(-1l);
+        user.setAge(0);
+        user.setUsername("none");
+        return user;
+    }
+}*/
+/*@Component
+class UserServiceFallbackFactory implements FallbackFactory<UserService>{
+    private static final Logger log = LoggerFactory.getLogger(UserServiceFallbackFactory.class);
+    @Override
+    public UserService create(Throwable throwable) {
+        return new UserService() {
+            @Override
+            public User getById(long id) {
+                log.info("fallback reason:", throwable);
+                User user = new User();
+                user.setId(-1l);
+                user.setAge(0);
+                user.setUsername("none");
+                return user;
+            }
+        };
+    }
+}*/

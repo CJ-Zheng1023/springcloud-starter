@@ -14,3 +14,6 @@ eureka:
 logging:
   level:
     cn.afterwin.service.UserService: DEBUG
+feign:
+  hystrix:
+    enabled: true

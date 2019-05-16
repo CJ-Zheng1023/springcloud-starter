@@ -15,7 +15,6 @@ import org.springframework.web.client.RestTemplate;
  **/
 @SpringBootApplication
 @EnableFeignClients
-@EnableHystrix
 public class MovieServiceBoot {
     public static void main(String[] args){
         SpringApplication.run(MovieServiceBoot.class, args);

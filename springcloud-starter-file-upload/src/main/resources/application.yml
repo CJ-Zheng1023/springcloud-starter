@@ -1,0 +1,18 @@
+
+server:
+  port: 8002
+eureka:
+  client:
+    healthcheck:
+      enabled: true
+    service-url:
+      defaultZone: http://localhost:7777/eureka/
+  instance:
+    prefer-ip-address: true
+spring:
+  application:
+    name: file-upload-service
+  http:
+    multipart:
+      max-file-size: 2000Mb
+      max-request-size: 2500Mb

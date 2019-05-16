@@ -8,6 +8,7 @@ import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,7 +31,7 @@ public class MovieController {
     @Autowired
     private UserService userService;
     @GetMapping("/user/{id}")
-    @HystrixCommand(fallbackMethod = "showUserFallback")
+    //@HystrixCommand(fallbackMethod = "showUserFallback")
     public User showUser(@PathVariable long id){
         return userService.getById(id);
     }
@@ -40,13 +41,13 @@ public class MovieController {
         log.info("{}:{}:{}", serviceInstance.getServiceId(), serviceInstance.getHost(), serviceInstance.getPort());
         return serviceInstance.getServiceId() + ":" + serviceInstance.getHost() + ":" + serviceInstance.getPort();
     }
-    private User showUserFallback(long id, Throwable throwable){
+    /*private User showUserFallback(long id, Throwable throwable){
         log.error("异常：", throwable);
         User user = new User();
         user.setId(-1l);
         user.setAge(0);
         user.setUsername("none");
         return user;
-    }
+    }*/
 
 }

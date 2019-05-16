@@ -12,6 +12,9 @@
         <module>springcloud-starter-user</module>
         <module>springcloud-starter-movie</module>
         <module>springcloud-starter-eureka</module>
+        <module>springcloud-starter-hystrix-console</module>
+        <module>springcloud-starter-zuul</module>
+        <module>springcloud-starter-file-upload</module>
     </modules>
     <dependencies>
         <dependency>
