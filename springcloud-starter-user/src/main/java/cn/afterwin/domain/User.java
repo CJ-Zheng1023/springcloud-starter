@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * @description:
@@ -23,4 +24,6 @@ public class User implements Serializable {
     @OneToOne
     @JoinColumn(name = "info_id", referencedColumnName = "id")
     private UserInfo userInfo;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Topic> topics;
 }
