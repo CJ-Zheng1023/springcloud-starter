@@ -20,4 +20,7 @@ public class User implements Serializable {
     private String username;
     @Column
     private int age;
+    @OneToOne
+    @JoinColumn(name = "info_id", referencedColumnName = "id")
+    private UserInfo userInfo;
 }

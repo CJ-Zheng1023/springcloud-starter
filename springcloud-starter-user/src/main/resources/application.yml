@@ -28,5 +28,6 @@ eureka:
       enabled: true
     service-url:
       defaultZone: http://localhost:7777/eureka/
+    enabled: false
   instance:
     prefer-ip-address: true
