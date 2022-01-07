@@ -34,7 +34,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <junit.version>4.12</junit.version>
         <springboot.version>1.5.9.RELEASE</springboot.version>
-        <h2.version>1.4.197</h2.version>
+        <h2.version>2.0.206</h2.version>
         <springcloud.version>Edgware.RELEASE</springcloud.version>
         <lombok.version>1.16.18</lombok.version>
     </properties>
